@@ -18,9 +18,9 @@ def merge(filenames_list):
     docs = [
         Document(filename) for filename in filenames_list
     ]
+    [doc.add_page_break() for doc in docs]
     composer = Composer(docs[0])
     for doc in docs[1:]:
-        doc.add_page_break()
         composer.append(doc)
     composer.save('output.docx')
 
